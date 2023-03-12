@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+    <link rel="stylesheet" href="style.css">
+    <title>BMI Calculator</title>
+    <!-- <style>
         .heightInputField {
             width: 2.5rem;
         }
@@ -14,11 +15,29 @@
         .weightInputField {
             width: 3rem;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
-    <h1>BMI Calculator</h1>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form>
+            <label>Height (in cm):</label>
+            <input type="text" name="height" id="height" placeholder="Enter height in cm" required><br><br>
+
+            <label>Weight (in kg):</label>
+            <input type="text" name="weight" id="weight" placeholder="Enter weight in kg" required><br><br>
+
+            <button type="button" onclick="calculateBMI()">Calculate</button><br><br>
+
+            <label>Your BMI:</label>
+            <input type="text" name="bmi" id="bmi" readonly><br><br>
+
+            <label>Interpretation:</label>
+            <input type="text" name="interpretation" id="interpretation" readonly>
+        </form>
+
+        <!-- <h1>BMI Calculator</h1>
 
     <form onsubmit="calculateBMI(); return false">
         <label for="heightInputFeet">
@@ -44,75 +63,67 @@
     <div id="result">
         <h2 id="title"></h2>
         <p id="suggestion"></p>
-    </div>
+    </div> -->
 
 
-    <img src="./bmi.jpg" alt="">
+        <!-- <img src="./bmi.jpg" alt="">
 
-    <script type="module">
-        window.calculateBMI = function calculateBMI() {
-            let heightInputFeet = document.getElementById("heightInputFeet").value;
-            let heightInputInch = document.querySelector("#heightInputInch").value;
+        <script type="module">
+            window.calculateBMI = function calculateBMI() {
+                let heightInputFeet = document.getElementById("height").value;
+                let heightInputInch = document.querySelector("#heightInputInch").value;
 
-            let weightInputKg = document.querySelector("#weightInputKg").value;
+                let weightInputKg = document.querySelector("#weigh").value;
 
-            heightInputFeet = parseInt(heightInputFeet);
-            heightInputInch = parseInt(heightInputInch);
+                heightInputFeet = parseInt(heightInputFeet);
+                heightInputInch = parseInt(heightInputInch);
 
-            heightInputInch += heightInputFeet * 12;
+                heightInputInch += heightInputFeet * 12;
 
-            let heightInMeter = (heightInputInch * 2.54) / 100;
+                let heightInMeter = (heightInputInch * 2.54) / 100;
 
-            let heightInMeterSq = heightInMeter * heightInMeter;
+                let heightInMeterSq = heightInMeter * heightInMeter;
 
-            let bodyMassIndex = weightInputKg / heightInMeterSq;
+                let bodyMassIndex = weightInputKg / heightInMeterSq;
 
-            let idealWeight = 22 * heightInMeterSq;
+                let idealWeight = 22 * heightInMeterSq;
 
-            let weightToLose = (weightInputKg - idealWeight).toFixed(2);
-            let weightToGain = (idealWeight - weightInputKg).toFixed(2);
+                let weightToLose = (weightInputKg - idealWeight).toFixed(2);
+                let weightToGain = (idealWeight - weightInputKg).toFixed(2);
 
-            let suggestion = "you are ";
+                let suggestion = "you are ";
 
-            if (bodyMassIndex > 30) {
-                suggestion += `Obese. you need to lose ${weightToLose}kg`;
+                if (bodyMassIndex > 30) {
+                    suggestion += `Obese. you need to lose ${weightToLose}kg`;
 
-            } else if (bodyMassIndex > 25) {
-                suggestion += `Overweight. you need to lose ${weightToLose}kg`;
+                } else if (bodyMassIndex > 25) {
+                    suggestion += `Overweight. you need to lose ${weightToLose}kg`;
 
-            } else if (bodyMassIndex > 18.5) {
+                } else if (bodyMassIndex > 18.5) {
 
-                if (bodyMassIndex > 22) {
-                    suggestion += `Normal but optionally you may lose ${weightToLose} indexes to become ideally fit`
-                } else if (parseInt(bodyMassIndex) === 22) {
-                    suggestion += `perfectly Fit`
+                    if (bodyMassIndex > 22) {
+                        suggestion += `Normal but optionally you may lose ${weightToLose} indexes to become ideally fit`
+                    } else if (parseInt(bodyMassIndex) === 22) {
+                        suggestion += `perfectly Fit`
+                    } else {
+                        suggestion += `Normal but optionally you may gain ${weightToGain} indexes to become ideally fit`
+                    }
+
                 } else {
-                    suggestion += `Normal but optionally you may gain ${weightToGain} indexes to become ideally fit`
+                    suggestion += `Underweight. you are supposed to gain ${weightToGain}kg to become normal`
                 }
 
-            } else {
-                suggestion += `Underweight. you are supposed to gain ${weightToGain}kg to become normal`
+
+                console.log("index: ", bodyMassIndex);
+                console.log("title: ", title);
+                console.log("idealWeight: ", idealWeight);
+
+
+                document.querySelector("#title").innerHTML = `Ideal weight: ${(idealWeight).toFixed(2)}kg`
+                document.querySelector("#suggestion").innerHTML = suggestion;
             }
-
-
-            console.log("index: ", bodyMassIndex);
-            console.log("title: ", title);
-            console.log("idealWeight: ", idealWeight);
-
-
-            document.querySelector("#title").innerHTML = `Ideal weight: ${(idealWeight).toFixed(2)}kg`
-            document.querySelector("#suggestion").innerHTML = suggestion;
-
-
-
-
-
-
-
-
-
-        }
-    </script>
+        </script> -->
+        <script src="script.js"></script>
 </body>
 
 </html>
